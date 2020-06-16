@@ -57,7 +57,7 @@ body {
   text-decoration: none;
   font-weight: bolder;
   font-size: 0.9rem;
-  color: rgb(0, 0, 0,.)
+  color: rgb(0, 0, 0,.8)
 }
 .nav-icon {
   display: flex;
@@ -441,4 +441,60 @@ select{
 .order-button{
     padding:0.6rem;
     border-radius: 3px;
+}
+.checkout-container{
+width:80%;
+margin:0 auto;
+
+}
+.checkout-section{
+background-color: #eae9e5;
+padding:7px;
+margin-top:20px
+}
+.checkout-product{
+  display: flex;
+  align-items: center;
+}
+.checkout-table{
+  width: 100%;
+}
+.checkout-table td{
+  padding: 15px;
+  background-color: #fff;
+}
+.checkout-section tr{
+  margin:40px 0
+}
+#item-section{
+  margin-bottom: 10px;
+}
+.checkout-product-image {
+  background-color: #eae9e5;
+  width:100px;
+  height: 100px;
+  margin-left: 5px;
+  margin-right: 10px;
+}.checkout-product-name{
+  font-weight: bold;
+  font-size: 1rem;
+  color: rgb(19, 18, 18);
+}
+.checkout-button-container{
+  display: flex;
+  justify-content: flex-end;
+  background-color: white;
+  margin-top: 10px;
+}
+.checkout-total{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; margin: 10px;
+}
+.checkout-total h3{
+  padding-right: 10px;
+}
+.checkout-button{
+  min-width: 250px;
+ margin-left: 10px
 }
