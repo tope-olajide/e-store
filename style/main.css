@@ -397,6 +397,18 @@ border-bottom: 1px solid rgb(128, 128, 128, 0.5);
     border: 1px solid rgba(182, 175, 175, 0.3);
     padding:50px
 }
+.sign-in-form{
+  width:40%;
+}
+.mt-1{
+  margin-top: 10px;
+}
+.mt-2{
+  margin-top: 20px;
+}
+.mt-3{
+  margin-top: 30px;
+}
 input[type="text"], input[type="password"], textarea, select{
   height: 1.4rem;
   padding: 1.6rem 0 1.5rem;
