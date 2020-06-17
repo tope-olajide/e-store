@@ -397,7 +397,7 @@ border-bottom: 1px solid rgb(128, 128, 128, 0.5);
     border: 1px solid rgba(182, 175, 175, 0.3);
     padding:50px
 }
-input[type="text"], textarea, select{
+input[type="text"], input[type="password"], textarea, select{
   height: 1.4rem;
   padding: 1.6rem 0 1.5rem;
   border: 0;
@@ -491,10 +491,92 @@ margin-top:20px
   justify-content: flex-end;
   align-items: center; margin: 10px;
 }
+option{
+  font-size: 1rem;
+  font-weight: bold;
+}
 .checkout-total h3{
   padding-right: 10px;
 }
 .checkout-button{
   min-width: 250px;
  margin-left: 10px
+}
+.image-gallery-container{
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.image-gallery{
+  width:250px;
+  height:250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border:1px solid rgb(128, 128, 128, .4);
+  padding:5px;
+}
+.image{
+  background-color: #eae9e5;
+  width:inherit;
+  height:inherit;
+}
+figure{
+  padding: 0;
+  margin:0
+}
+.gallery-button{
+  padding:.7rem
+}
+.image-upload-container {
+  padding:10px;
+  border:1px solid rgb(128, 128, 128, .2);
+  border: 1px solid grey;
+}
+.image-upload-section {
+  height: 200px;
+  width: 95%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border:1px dotted rgb(128, 128, 128, .2);
+  background: #f2f2f2;
+}
+.image-upload-section h2{
+  font-size: 1.3rem;text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+.image-upload-section h3{
+  font-size: 1.3rem;text-align: center;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 4px;cursor: pointer;
+}
+.image-upload-section p{
+  font-size: 1rem;
+  text-align: center;
+}
+.selected-image {
+  background-color: #eae9e5;
+  width:100px;
+  height:100px;
+  border-radius:4px;
+  border:1px solid grey;
+  padding: 5px;
+  
+  margin:5px
+}
+.selected-image-container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;justify-content: flex-start;
 }
