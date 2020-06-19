@@ -37,48 +37,72 @@
         </div>
       </section>
     </header>
-    <section class="checkout-container">
-    <section class="checkout-section">
-       <h1>Cart (2 items)</h1> 
-        <table class="checkout-table">
-            <tr>
-              <th>Item</th>
-              <th>Quantity</th>
-              <th>Unit Price</th>
-              <th>Subtotal</th>
-            </tr>
-            <tr id="item-section">
-                <td>
-                    <section class="checkout-product">
-                        <section class="checkout-product-image"></section>
-                        <div><h1 class="checkout-product-name">Markus Green Love Seat</h1>
-                        <h5>REMOVE</h5></div>
-                    </section>
-            </td>
-                <td><p>01/02/2020</p></td>
-                <td><p>$2000</p></td>
-                <td><p>$2000</p></td>
-            </tr>
-            <tr>
-                <td>
-                    <section class="checkout-product">
-                        <section class="checkout-product-image"></section>
-                        <div><h1 class="checkout-product-name">Markus Green Love Seat</h1>
-                        <h5>REMOVE</h5></div>
-                    </section>
-            </td>
-                <td><p>01/02/2020</p></td>
-                <td><p>$2000</p></td>
-                <td><p>$2000</p></td>
-            </tr>
-        </table>
+     <section class="checkout-container"><h1>Cart (2 items)</h1>
+      <section class="checkout-section">
+        
+        <section class = "cart-item">
+          <div class="checkout-product-image">
+      <img src="./images/pic01.jpg">
+          </div>
+          <div class="checkout-product-description">
+      <h3>Espirit ruffle shirt</h3>
+      <h6>Quantity: 1</h6>
+      <h6>Unit Price: $2000</h6>
+      <h6>Subtotal: $2000</h6>
+      <div class="checkout-options">
+          <p><i class="fas fa-heart font-awesome-icon" ></i>Add to Favourite </p>
+          <p><i class="fas fa-trash font-awesome-icon" ></i> Remove</p>
+      </div>
+          </div>
+        </section>
+        <section class = "cart-item">
+          <div class="checkout-product-image">
+      <img src="./images/pic01.jpg">
+          </div>
+          <div class="checkout-product-description">
+      <h3>Espirit ruffle shirt</h3>
+      <h6>Quantity: 1      </h6>
+      <h6>Unit Price: $2000</h6>
+      <h6>Subtotal: $2000</h6>
+      <div class="checkout-options">
+        <p><i class="fas fa-heart font-awesome-icon" ></i>Add to Favourite </p>
+        <p><i class="fas fa-trash font-awesome-icon" ></i> Remove</p>
+      </div>
+          </div>
+        </section>
+        
         <section class="checkout-total">
-            <h3>Total:</h3> <h2>$4000</h2>
+          <h3>Total:</h3>
+          <h2>$4000</h2>
         </section>
         <section class="checkout-button-container">
-            <input type="button" class="secondary-button checkout-button" value="Continue shopping">
-            <input type="button" class="secondary-button checkout-button" value="Proceed to checkout">
+          <input
+            type="button"
+            class="secondary-button checkout-button"
+            value="Continue shopping"
+          />
+          <input
+            type="button"
+            class="secondary-button checkout-button"
+            value="Proceed to checkout"
+          />
         </section>
-    </section></section>
+      </section>
+    </section> 
+    <!-- <section class = "cart-item">
+      <div class="checkout-product-image">
+  <img src="./images/pic01.jpg">
+      </div>
+      <div class="checkout-product-description">
+  <h3>{productName}</h3>
+  <h6>Quantity: {quantity}</h6>
+  <h6>Unit Price: {unitPrice}</h6>
+  <h6>Subtotal: {subTotal}</h6>
+  <div class="checkout-options">
+      <p><FontAwesomeIcon icon="heart" class="font-awesome-icon" />Add to Favourite </p>
+      <p><FontAwesomeIcon icon="trash" class="font-awesome-icon" /> Remove</p>
+  </div>
+      </div>
+    </section> -->
   </body>
 </html>
