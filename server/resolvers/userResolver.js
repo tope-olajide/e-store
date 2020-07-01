@@ -7,7 +7,7 @@ export default {
   Mutation: {
     signup: async (
       parent,
-      {data: {email, username, password, firstname, lastname }},
+      {data: {email, username, password, fullname }},
       { models: { userModel } },
       info
     ) => {
@@ -18,12 +18,20 @@ export default {
           if(!validator.isLength(password, {min:5})){
             throw new AuthenticationError('Password must be atleast 5 characters')
           }
+          if(!validator.isLength(username, {min:3}))
+            {
+              throw new AuthenticationError('username must be atleast 3 characters')
+            }
+          if(!validator.isLength(fullname, {min:4}))
+            {
+              throw new AuthenticationError('fullname must be atleast 4 characters')
+            }
+          
         const encryptedPassword = bcrypt.hashSync(password, 10);
         const userData = {
           email: email.toLowerCase(),
           username: username.toLowerCase(),
-          firstname,
-          lastname,
+          fullname,
           password: encryptedPassword,
         };
         const createdUser = await userModel.create(userData);
@@ -42,15 +50,15 @@ export default {
         };
       } catch (error) {
         if (
-            err.name === 'MongoError'
-              && err.code === 11000
-              && err.errmsg.includes('email')
+            error.name === 'MongoError'
+              && error.code === 11000
+              && error.errmsg.includes('email')
           ) {
             throw new AuthenticationError('User with this email address exist already')
           } if (
-            err.name === 'MongoError'
-              && err.code === 11000
-              && err.errmsg.includes('username')
+            error.name === 'MongoError'
+              && error.code === 11000
+              && error.errmsg.includes('username')
           ) {
             throw new AuthenticationError ('User with this username exists already')
             
@@ -91,8 +99,8 @@ export default {
         }
           throw new AuthenticationError ('Invalid pasword!');
       }
-      catch (err) {
-          throw new AuthenticationError (err);
+      catch (error) {
+          throw new AuthenticationError (error);
       }
     }
   },

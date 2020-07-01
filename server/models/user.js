@@ -23,15 +23,10 @@ const userSchema = new Schema({
   imageUrl: {
     type: String,
   },
-  firstname: {
+  fullname: {
     type: String,
-    required: [true, "Please enter a firstname"],
+    required: [true, "Please enter your fullname"],
     trim: true
-  },
-  lastname: {
-    type: String,
-    required: [true, "Please enter a lastname"],
-    trim: true,
   },
   role: {
     type: String,
