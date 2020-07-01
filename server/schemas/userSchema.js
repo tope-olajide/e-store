@@ -7,8 +7,7 @@ type User {
   email: String!
   username: String!
   password: String!
-  firstname: String!
-  lastname: String!
+  fullname: String!
   role: String!
 }
 
@@ -21,8 +20,7 @@ input SignupUserInput {
   email: String!
   username: String!
   password: String!
-  firstname: String!
-  lastname: String!
+  fullname: String!
 }
 
 input LoginUserInput {
