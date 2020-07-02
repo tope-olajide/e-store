@@ -8,6 +8,7 @@ import schemas from './schemas';
 import resolvers from './resolvers';
 
 import userModel from './models/user';
+import productModel from './models/product';
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -19,7 +20,7 @@ const getUser = (req) => {
   
     if (token) {
       try {
-        return jwt.verify(token, "process.env.JWT_SECRET");
+        return jwt.verify(token, process.env.JWT_SECRET);
         
       } catch (e) {
         console.log(error)
@@ -37,7 +38,8 @@ const server = new ApolloServer({
         return {
           user,
           models: {
-            userModel
+            userModel,
+            productModel
           },
         };
       }
