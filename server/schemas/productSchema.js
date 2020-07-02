@@ -43,6 +43,7 @@ type AllProducts{
   
   extend type Mutation {
     createProduct(data: CreateProductInput!): Product!
+    modifyProduct(productId:ID!, data: UpdateProductInput!): Product!
   }
 
 `;
