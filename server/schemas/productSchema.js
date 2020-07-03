@@ -45,5 +45,7 @@ type AllProducts{
     createProduct(data: CreateProductInput!): Product!
     modifyProduct(productId:ID!, data: UpdateProductInput!): Product!
   }
-
+  extend type Query {
+allProducts:[Product!]!
+  }
 `;

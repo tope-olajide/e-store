@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from "apollo-server";
+import { AuthenticationError, UserInputError, error } from "apollo-server";
 import validator from 'validator';
 
 export default {
@@ -66,4 +66,25 @@ export default {
       }
     }
   },
+  Query: {
+    allProducts: async (
+      parent,
+      { data },
+      { models: { productModel }, user },
+      info
+    ) => {
+      if (!user) {
+        throw new AuthenticationError("You are not authenticated");
+      }
+      try {
+        const products = await productModel.find({});
+        if (products) {
+          return products;
+        }
+        return [];
+      } catch (error) {
+        throw error;
+      }
+    },
+  }
 };
