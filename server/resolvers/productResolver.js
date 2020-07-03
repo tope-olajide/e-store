@@ -108,5 +108,24 @@ export default {
         throw error;
       }
     },
+    productDetails: async (
+      parent,
+      { productId },
+      { models: { productModel }, user },
+      info
+    ) => {
+      if (!user) {
+        throw new AuthenticationError("You are not authenticated");
+      }
+      try {
+        const productDetails = await productModel.findOne({ _id: productId });
+        if (productDetails) {
+          return productDetails;
+        }
+        return {};
+      } catch (error) {
+        throw error;
+      }
+    }
   }
 };

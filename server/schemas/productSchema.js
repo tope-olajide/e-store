@@ -44,8 +44,10 @@ type AllProducts{
   extend type Mutation {
     createProduct(data: CreateProductInput!): Product!
     modifyProduct(productId:ID!, data: UpdateProductInput!): Product!
+    deleteMyProduct(productId:ID!): Product!
   }
   extend type Query {
 allProducts:[Product!]!
+productDetails(productId:ID!): Product!
   }
 `;
