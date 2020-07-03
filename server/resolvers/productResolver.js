@@ -64,7 +64,29 @@ export default {
       } catch (error) {
         throw error;
       }
-    }
+    },
+    deleteMyProduct: async (
+      parent,
+      { productId },
+      { models: { productModel }, user },
+      info
+    ) => {
+      if (!user) {
+        throw new AuthenticationError("You are not authenticated");
+      }
+      try {
+        const deletedProduct = await productModel.findOneAndDelete({
+          _id: productId,
+          userId: user.id,
+        });
+        if (!deletedProduct) {
+          throw new Error("404 Post not found");
+        }
+        return deletedProduct;
+      } catch (error) {
+        throw error;
+      }
+    },
   },
   Query: {
     allProducts: async (
