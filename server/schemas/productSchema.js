@@ -37,12 +37,13 @@ type AllProducts{
     price: String!
     updatedAt: Date
     description: String!
-    category: String!
+    category: [String!]!
     productImageUrl: String!
   }
   
   extend type Mutation {
     createProduct(data: CreateProductInput!): Product!
+    modifyProduct(productId:ID!, data: UpdateProductInput!): Product!
   }
 
 `;
