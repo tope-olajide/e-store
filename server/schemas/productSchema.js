@@ -37,7 +37,7 @@ type AllProducts{
     price: String!
     updatedAt: Date
     description: String!
-    category: String!
+    category: [String!]!
     productImageUrl: String!
   }
   
