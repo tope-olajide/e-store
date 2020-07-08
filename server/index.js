@@ -9,6 +9,7 @@ import resolvers from './resolvers';
 
 import userModel from './models/user';
 import productModel from './models/product';
+import favoriteModel from './models/favorite';
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -39,7 +40,8 @@ const server = new ApolloServer({
           user,
           models: {
             userModel,
-            productModel
+            productModel,
+            favoriteModel
           },
         };
       }
