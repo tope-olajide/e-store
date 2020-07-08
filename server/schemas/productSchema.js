@@ -18,8 +18,6 @@ type AllProducts{
   product:Product!
   isUserFavorite:Boolean
 }
-
-
   input CreateProductInput {
     name: String!
     summary: String!
