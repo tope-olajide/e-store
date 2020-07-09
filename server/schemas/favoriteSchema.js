@@ -8,7 +8,7 @@ export default gql`
   }
   type favoriteProducts {
     _id: ID!
-    productName: String!
+    name: String!
     summary: String!
     price: String!
     createdAt: Date
@@ -18,11 +18,11 @@ export default gql`
     productImageUrl: String!
     userId: String!
   }
+  extend type Query {
+    fetchAllFavoriteProduct: [favoriteProducts!]!
+  }
   extend type Mutation {
     addProductToFavorite(productId: ID!): Favorite!
     removeProductFromFavorite(productId: ID!): Favorite!
-  }
-  extend type Query {
-    fetchAllFavoriteProduct: [favoriteProducts!]!
   }
 `;
