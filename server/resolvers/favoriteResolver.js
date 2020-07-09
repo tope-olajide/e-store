@@ -25,5 +25,24 @@ export default {
           throw error;
         }
       },
+      removeProductFromFavorite: async (
+        parent,
+        { productId },
+        { models: { favoriteModel }, user },
+        info
+      ) => {
+        if (!user) {
+          throw new AuthenticationError("You are not authenticated");
+        }
+        try {
+          const deletedProduct = await favoriteModel.findOneAndDelete({ productId, userId: user.id });
+      if (!deletedProduct) {
+        throw new Error("404 Product not found");
+      }
+      return deletedProduct;
+        } catch (error) {
+          throw error;
+        }
+      },
     },
   }
