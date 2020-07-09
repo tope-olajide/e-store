@@ -20,5 +20,6 @@ export default gql`
   }
   extend type Mutation {
     addProductToFavorite(productId: ID!): Favorite!
+    removeProductFromFavorite(productId: ID!): Favorite!
   }
 `;
