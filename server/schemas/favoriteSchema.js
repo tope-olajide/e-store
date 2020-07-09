@@ -22,4 +22,7 @@ export default gql`
     addProductToFavorite(productId: ID!): Favorite!
     removeProductFromFavorite(productId: ID!): Favorite!
   }
+  extend type Query {
+    fetchAllFavoriteProduct: [favoriteProducts!]!
+  }
 `;
