@@ -17,16 +17,18 @@ const app = express();
 app.use(cors());
 
 const getUser = (req) => {
-    const token = req.headers['token'];
-  
+    const token = req.headers['token']||req.body.token;
     if (token) {
-      try {
-        return jwt.verify(token, process.env.JWT_SECRET);
-        
-      } catch (e) {
-        console.log(error)
-        throw new AuthenticationError('Your session expired. Sign in again.');
-      }
+      const jwtSecret = process.env.JWT_SECRET;
+      jasonwebtoken.verify(token, jwtSecret, (err, decoded) => {
+        if (err) {
+          throw new AuthenticationError('Invalid token, please sign in again.')
+        }
+        if (decoded.exp < new Date().getTime() / 1000) { 
+            throw new AuthenticationError('Your session has expired, please sign in again')
+        }
+        return decoded;
+      });
     }
   };
   
