@@ -45,7 +45,7 @@ type AllProducts{
     deleteMyProduct(productId:ID!): Product!
   }
   extend type Query {
-allProducts:[Product!]!
+    allProducts:[AllProducts]
 productDetails(productId:ID!): Product!
   }
 `;
