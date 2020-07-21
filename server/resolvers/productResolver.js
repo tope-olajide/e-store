@@ -92,18 +92,27 @@ export default {
     allProducts: async (
       parent,
       { data },
-      { models: { productModel }, user },
+      { models: { productModel,favoriteModel }, user },
       info
     ) => {
-      if (!user) {
-        throw new AuthenticationError("You are not authenticated");
-      }
       try {
         const products = await productModel.find({});
+        const favoriteProduct = await favoriteModel.find({});
         if (products) {
-          return products;
+          const favoriteProductIds = favoriteProduct.map((product) => {
+            return product.productId.toString();
+          });
+          console.log(favoriteProductIds);
+          const allProducts = products.map((product) => {
+            if (favoriteProductIds.includes(product._id.toString())) {
+              return { product, isUserFavorite: true };
+            }
+            return { product, isUserFavorite: false };
+          });
+          console.log(allProducts[0]);
+          return allProducts;
         }
-        return [];
+        return [{}];
       } catch (error) {
         throw error;
       }

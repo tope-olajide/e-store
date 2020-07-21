@@ -277,12 +277,16 @@ margin-right:0
   color: red;
 }
 
-.product {
+.product-card-image-container {
   width: 100%;
   background-color: #d1d5d8;
   height: 350px;
   display: flex;
   margin-bottom:0px
+}
+.product-card-image-container img {
+  width:100%;
+  object-fit: cover;
 }
 .product-price {
   color: rgb(0, 0, 0, 0.6);
