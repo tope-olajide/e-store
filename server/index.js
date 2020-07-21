@@ -1,9 +1,8 @@
 import cors from 'cors';
 import express from 'express';
-import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import { ApolloServer, AuthenticationError } from 'apollo-server-express';
-
+import jsonwebtoken from 'jsonwebtoken'
 import schemas from './schemas';
 import resolvers from './resolvers';
 
@@ -17,10 +16,10 @@ const app = express();
 app.use(cors());
 
 const getUser = (req) => {
-    const token = req.headers['token']||req.body.token;
+    const token = req.headers['token']
     if (token) {
       const jwtSecret = process.env.JWT_SECRET;
-      jasonwebtoken.verify(token, jwtSecret, (err, decoded) => {
+      jsonwebtoken.verify(token, jwtSecret, (err, decoded) => {
         if (err) {
           throw new AuthenticationError('Invalid token, please sign in again.')
         }
