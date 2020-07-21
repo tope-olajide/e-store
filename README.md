@@ -1,2 +1,2 @@
-# estore-template
-electronic store built with React GraphQl and MongoDB
+# estore
+A full-stack electronic e-commerce web application built with React, GraphQL and MongoDB
