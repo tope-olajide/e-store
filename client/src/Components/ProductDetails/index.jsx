@@ -5,7 +5,7 @@ const ProductDetails = ({match}) => {
   const [itemNumber, setItemNumber] = useState(0);
   const { productId } = match.params;
   const { data, error, loading } = useQuery(GET_PRODUCT_DETAILS, {
-    variables: { productId: "5efe0bb37ae13428f4d345f4" },
+    variables: { productId }
   });
   
   const increaseItem = () => {
