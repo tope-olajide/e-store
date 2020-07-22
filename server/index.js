@@ -16,19 +16,15 @@ const app = express();
 app.use(cors());
 
 const getUser = (req) => {
-    const token = req.headers['token']
-    if (token) {
-      const jwtSecret = process.env.JWT_SECRET;
-      jsonwebtoken.verify(token, jwtSecret, (err, decoded) => {
-        if (err) {
-          throw new AuthenticationError('Invalid token, please sign in again.')
+    const token = req.headers['authorization'];
+      if (token) {
+        try {
+          return jsonwebtoken.verify(token, process.env.JWT_SECRET);
+        } catch (error) {
+          console.log(error)
+          throw new AuthenticationError('Your session expired. Sign in again.');
         }
-        if (decoded.exp < new Date().getTime() / 1000) { 
-            throw new AuthenticationError('Your session has expired, please sign in again')
-        }
-        return decoded;
-      });
-    }
+      }
   };
   
 const server = new ApolloServer({
