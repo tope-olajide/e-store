@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import AllProducts from "./Components/AllProducts";
-
+import ProductDetails from "./Components/ProductDetails"
 library.add(faHeart, faHeartRegular);
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/sign-in" component={SignIn} />
         <Route exact path="/" component={AllProducts} />
+        <Route exact path="/product-details/:productId" component={ProductDetails} />
       </Switch>
     </>
   );
