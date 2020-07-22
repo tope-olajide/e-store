@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ProductCard from "../Commons/ProductCard";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_ALL_PRODUCTS } from "../../queries/products";
@@ -18,7 +18,7 @@ const AllProducts = () => {
               isUserFavorite={product.isUserFavorite}
               name={product.product.name}
               price={product.product.price}
-              id={product.product._id}
+              productId={product.product._id}
             />
           );
         })}
