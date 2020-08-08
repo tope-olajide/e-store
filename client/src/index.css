@@ -426,8 +426,7 @@ margin-right:0
   align-items: center;
   margin: 20px auto;
 }
-.primary-button,
-.secondary-button {
+button {
   width: 100%;
   border: grey 2px solid;
   font-size: 1rem;
@@ -435,7 +434,7 @@ margin-right:0
   background-color: transparent;
   outline: none;
   cursor: pointer;
-  padding: 1rem;
+  padding: .78rem;
   text-transform: uppercase;
   margin-top: 10px;
 }
@@ -799,18 +798,31 @@ option {
   align-items: center;
   border: 1px solid rgb(128, 128, 128, 0.4);
   padding: 5px;
+  margin:10px
 }
 .image {
   background-color: #eae9e5;
-  width: inherit;
-  height: inherit;
+  width: 250px;
+  height: 250px;
+}
+.image-gallery img {
+  width: 250px;
+  height: 190px;
+  object-fit: cover;
 }
 figure {
   padding: 0;
   margin: 0;
 }
 .gallery-button {
-  padding: 0.7rem;
+  padding: 0.6rem;
+}
+.upload-button{
+  width:200px;
+  margin:20px auto;
+  display:flex;
+  text-align:center;
+  justify-content: center;
 }
 .image-upload-container {
   padding: 10px;
@@ -829,15 +841,15 @@ figure {
   background: #f2f2f2;
 }
 .image-upload-section h2 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-align: center;
   padding: 10px;
   margin: 10px;
 }
 .image-upload-section h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-align: center;
-  padding: 10px;
+  padding: 7px;
   border: 1px solid black;
   margin: 10px;
   background-color: #fff;
@@ -855,8 +867,12 @@ figure {
   border-radius: 4px;
   border: 1px solid grey;
   padding: 5px;
-
   margin: 5px;
+}
+.selected-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 .selected-image-container {
   width: 95%;
@@ -943,4 +959,58 @@ footer a {
 text-decoration: none;
 color:grey
 }
-
+.modal-container{
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  display:flex;
+  z-index: 10;
+}
+.modal {
+  top:0;
+  width:30rem;
+  min-height:15rem;
+  display:flex;
+  border:1px solid white;
+  flex-direction: column;
+  background-color: white;
+  color:black
+}
+.modal-header{
+border-bottom:1px solid rgb(0, 0, 0,0.3);
+min-height:50px;
+width:100%;
+display: flex;
+justify-content: space-between;
+align-items:center
+}
+.modal-header h1{
+  font-size:1rem;
+  margin:0px 10px
+}
+.close-modal{
+  border: 2px solid rgb(0, 0, 0,0.3);
+  padding:5px 10px;
+  cursor: pointer;
+}
+.modal-body {
+  min-height: 120px;
+  padding:0px 10px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.modal-footer {
+  min-height: 40px;
+  padding:10px 5px;
+  border-top: 1px solid rgb(0, 0, 0,0.3);
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal-footer button {
+width:40%;
+padding:.6rem;
+}
