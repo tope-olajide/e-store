@@ -36,6 +36,5 @@ const productSchema = new Schema({
     ref: 'Users',
     required: true,
   },
-
 });
 export default mongoose.model('Products', productSchema);

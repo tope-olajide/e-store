@@ -29,9 +29,9 @@ cache.writeData({
     users: [],
   },
 });
-
+/* link: authLink.concat(httpLink), */
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: authLink.concat(httpLink), 
   cache,
 });
 

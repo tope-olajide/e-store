@@ -5,10 +5,10 @@ import { ApolloServer, AuthenticationError } from 'apollo-server-express';
 import jsonwebtoken from 'jsonwebtoken'
 import schemas from './schemas';
 import resolvers from './resolvers';
-
 import userModel from './models/user';
 import productModel from './models/product';
 import favoriteModel from './models/favorite';
+import imageGalleryModel from './models/imageGallery';
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -17,12 +17,13 @@ app.use(cors());
 
 const getUser = (req) => {
     const token = req.headers['authorization'];
+    
       if (token) {
         try {
           return jsonwebtoken.verify(token, process.env.JWT_SECRET);
         } catch (error) {
           console.log(error)
-          throw new AuthenticationError('Your session expired. Sign in again.');
+          return null
         }
       }
   };
@@ -33,12 +34,14 @@ const server = new ApolloServer({
     context: ({ req }) => {
       if (req) {
         const user = getUser(req);
+        
         return {
           user,
           models: {
             userModel,
             productModel,
-            favoriteModel
+            favoriteModel,
+            imageGalleryModel
           },
         };
       }

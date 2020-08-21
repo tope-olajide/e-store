@@ -1,6 +1,7 @@
 import userSchema from './userSchema';
 import productSchema from './productSchema';
 import favoriteSchema from './favoriteSchema';
+import imageGallerySchema from './imageGallerySchema';
 
 import { gql } from 'apollo-server';
 
@@ -13,4 +14,4 @@ type Query {
   }
 `;
 
-export default [linkSchema, userSchema, productSchema, favoriteSchema];
+export default [linkSchema, userSchema, productSchema, favoriteSchema, imageGallerySchema];

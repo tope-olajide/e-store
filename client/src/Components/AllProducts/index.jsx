@@ -10,7 +10,6 @@ const AllProducts = () => {
 
   return (
     <>
-      {console.log(data.allProducts)}
       <section class="product-section">
         {data.allProducts.map((product) => {
           return (
