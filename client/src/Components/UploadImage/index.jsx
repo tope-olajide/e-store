@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { SAVE_UPLOADED_PICTURES } from "../../mutations/imageUpload";
 const ImageUpload = () => {
   const [files, setFiles] = useState([]);
+  const [isUploadingImage, setIsUploadingImage] = useState(false)
   const thumbs = files.map((file) => (
     <div class={"selected-image"} key={file.name}>
       <img src={file.preview} /* style={img} */ />
@@ -32,6 +33,7 @@ const ImageUpload = () => {
 
   const [savePictures, { loading, data, error }] = useMutation(SAVE_UPLOADED_PICTURES);
   const saveImageUrls = async() => {
+    setIsUploadingImage(true)
      let uploadedImagesUrl = [];
     const uploadPictures = files.map(async (file) => {
       // Initial FormData
@@ -39,6 +41,7 @@ const ImageUpload = () => {
       formData.append("upload_preset", "sijxpjkn");
       formData.append("api_key", "139423638121511");
       formData.append("file", file);
+      formData.append("folder", "estore");
       formData.append("timestamp", (Date.now() / 1000) | 0);
       try {
         let response = await fetch("https://api.cloudinary.com/v1_1/temitope/image/upload",{
@@ -51,6 +54,7 @@ const ImageUpload = () => {
         uploadedImagesUrl.push({ imageUrl: secure_url, imageId: public_id });
       } catch (err) {
         console.log(err);
+        setIsUploadingImage(false)
       }
     });
      // Once all the files are uploaded
@@ -61,8 +65,10 @@ const ImageUpload = () => {
         await savePictures({
           variables: {uploadedImagesUrl},
         });
+        setIsUploadingImage(false)
       } catch (error) {
         console.log(error);
+        setIsUploadingImage(false)
       }
     }); 
   };
@@ -79,7 +85,7 @@ const ImageUpload = () => {
           </div>
           <section class="selected-image-container">{thumbs}</section>
         </section>
-        <button className="upload-button" onClick={saveImageUrls}>Upload</button>
+        <button className="upload-button" onClick={saveImageUrls}>{isUploadingImage?"Uploading...":"upload"}</button>
       </section>
     </>
   )
