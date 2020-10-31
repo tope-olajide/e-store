@@ -17,7 +17,6 @@ app.use(cors());
 
 const getUser = (req) => {
     const token = req.headers['authorization'];
-    
       if (token) {
         try {
           return jsonwebtoken.verify(token, process.env.JWT_SECRET);
@@ -51,5 +50,5 @@ const options = {useNewUrlParser: true, useUnifiedTopology: true}
 server.applyMiddleware({ app, path: '/graphql' });
 
 mongoose.connect(process.env.DATABASE_URL, options)
-        .then(() => app.listen(5000, console.log('🚀 Server is up and running at http://localhost:5000')))
+        .then(() => app.listen(5000, console.log('🚀 Server is up and running at http://localhost:5000/graphql')))
         .catch(error => { throw error })
